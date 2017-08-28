@@ -16,6 +16,22 @@ public class Vehicles {
 		}
 	}
 	
+	public Vehicles() {
+		addVehicles();
+		addToAvailableVehicles();
+	}
+	
+	private void addVehicles() {
+		Vehicle car1 = new Car(200, "Volvo", 900, true);
+		Vehicle car2 = new Car(250, "BMW", 1100, true);
+		Vehicle bike1 = new Bike("BRONCO", 80, true);
+		Vehicle bike2 = new Bike("Crescent", 100, true);
+		addVehicle(car1);
+		addVehicle(car2);
+		addVehicle(bike1);
+		addVehicle(bike2);
+	}
+	
 	public void addVehicle(Vehicle vehicle) {
 		allVehicle.add(vehicle);
 	}
