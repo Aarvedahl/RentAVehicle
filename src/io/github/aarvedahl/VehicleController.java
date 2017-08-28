@@ -12,13 +12,13 @@ public class VehicleController {
 		this.theView = theView;
 		this.theView.addRentVehicleListener(new RentVehicleListener());
 		this.theView.addReturnVehicleListener(new ReturnVehicleListener());
-
 		
 	}
 		
 	class RentVehicleListener implements ActionListener{
 
 		public void actionPerformed(ActionEvent e) {
+			// Öppna en ny view
 			// Kolla vilken vehicle som ska hyras ut och sätt available = false
 			System.out.println("Rent Vehicle");
 			
@@ -29,6 +29,7 @@ public class VehicleController {
 	class ReturnVehicleListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
+			// Öppna en ny view
 			// Kolla vilken vehicle som ska lämnas in och sätt available = true
 			System.out.println("Return Vehicle");
 		}
