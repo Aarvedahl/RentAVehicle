@@ -5,13 +5,15 @@ import java.util.ArrayList;
 
 public class Vehicles {
 
-    List<Vehicle>allVehicle = new ArrayList<Vehicle>();
+    static List<Vehicle>allVehicle = new ArrayList<Vehicle>();
     List<Vehicle>availableVehicle = new ArrayList<Vehicle>();
     List<Vehicle>unavailableVehicle = new ArrayList<Vehicle>();
 
     private void addToAvailableVehicles() {
-        for(Vehicle v: allVehicle) {
-            if(v.available == true) {
+        availableVehicle.clear();
+        unavailableVehicle.clear();
+        for(Vehicle v: getAllVehicle()) {
+            if(v.available) {
                 availableVehicle.add(v);
             } else {
                 unavailableVehicle.add(v);
@@ -20,6 +22,12 @@ public class Vehicles {
     }
 
     public Vehicles() {
+        System.out.println(allVehicle.size());
+
+    }
+
+    public void addToLists() {
+        // TODO Varje gång man klickar på confirm så fylls listan på nytt
         addVehicles();
         addToAvailableVehicles();
     }
@@ -35,18 +43,18 @@ public class Vehicles {
         addVehicle(bike2);
     }
 
-    public void rentVehicle(Vehicle v) {
+    public void rentVehicle(String serialNumber) {
         for(Vehicle vehicle: getAllVehicle()) {
-            if(vehicle.serialNumber == v.serialNumber) {
-                v.available = false;
+           if (vehicle.serialNumber == Integer.parseInt(serialNumber)) {
+                vehicle.available = false;
             }
         }
     }
 
-    public void returnVehicle(Vehicle v) {
+    public void returnVehicle(String serialNumber) {
         for(Vehicle vehicle: getAllVehicle()) {
-            if(vehicle.serialNumber == v.serialNumber) {
-                v.available = true;
+            if (vehicle.serialNumber == Integer.parseInt(serialNumber)) {
+                vehicle.available = true;
             }
         }
     }

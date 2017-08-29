@@ -7,23 +7,18 @@ import java.util.List;
 
 public class RentCarView extends JFrame {
     private JLabel text = new JLabel("Please choose a car to rent:");
-    // EN COMBOBOX SELECT
-    // Ta emot en lista med alla available vehicles
     private JButton confirmBtn = new JButton("Confirm");
     private JButton cancelBtn = new JButton("Cancel");
     Vehicles vehicles = new Vehicles();
+    private JComboBox vehicleList;
 
-  /*  public static void main(String[] args) {
-        RentCarView rent = new RentCarView();
-    } */
 
     public RentCarView() {
         JPanel rentPanel = new JPanel();
-        // list = vehicles.getAvailableVehicle();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(370, 170);
 
-        JComboBox vehicleList = new JComboBox(addToVehicleList());
+        vehicleList = new JComboBox(addToVehicleList());
         rentPanel.add(text);
         rentPanel.add(vehicleList);
         rentPanel.add(confirmBtn);
@@ -31,25 +26,26 @@ public class RentCarView extends JFrame {
 
         this.add(rentPanel);
 
-        //this.setVisible(true);
-        // TODO finish RentCarView and add a combobox select
+    }
 
+    public Object getSelectedVehicle() {
+        return vehicleList.getSelectedItem();
     }
 
     private Object[] addToVehicleList() {
         List <String> newList = new ArrayList<>();
 
         for(Vehicle v: vehicles.getAvailableVehicle()) {
-            newList.add(v.model + " ," + v.price + " kr");
+            newList.add(v.model + ", " + v.serialNumber + ", " + v.price + " kr");
         }
         return newList.toArray();
     }
 
-    void addConfirmButtonListener(ActionListener listenForConfirmButton) {
+    void addConfirmRentListener(ActionListener listenForConfirmButton) {
         confirmBtn.addActionListener(listenForConfirmButton);
     }
 
-    void addCancelButtonListener(ActionListener listenForCancelButton) {
+    void addCancelRentListener(ActionListener listenForCancelButton) {
         cancelBtn.addActionListener(listenForCancelButton);
     }
 }

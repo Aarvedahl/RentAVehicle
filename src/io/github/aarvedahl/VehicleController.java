@@ -18,10 +18,8 @@ public class VehicleController {
     class RentVehicleListener implements ActionListener{
 
         public void actionPerformed(ActionEvent e) {
-            // TODO Öppna en ny view
-            // TODO Kolla vilken vehicle som ska hyras ut och sätt available = false
-            System.out.println("Rent Vehicle");
             RentCarView rentCarView = new RentCarView();
+            RentCarController rentCarController = new RentCarController(rentCarView);
             rentCarView.setVisible(true);
 
         }
@@ -33,7 +31,9 @@ public class VehicleController {
         public void actionPerformed(ActionEvent e) {
             //  TODO Öppna en ny view
             //  TODO Kolla vilken vehicle som ska lämnas in och sätt available = true
-            System.out.println("Return Vehicle");
+            ReturnCarView returnCarView = new ReturnCarView();
+            ReturnCarController returnCarController = new ReturnCarController();
+            returnCarView.setVisible(true);
         }
 
     }
