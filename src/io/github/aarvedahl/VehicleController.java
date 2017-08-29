@@ -5,37 +5,39 @@ import java.awt.event.ActionListener;
 
 
 public class VehicleController {
-	private Vehicles vehicles = new Vehicles();
-	private Booking theView;
-	
-	public VehicleController(Booking theView) {
-		this.theView = theView;
-		this.theView.addRentVehicleListener(new RentVehicleListener());
-		this.theView.addReturnVehicleListener(new ReturnVehicleListener());
-		
-	}
-		
-	class RentVehicleListener implements ActionListener{
+    private Vehicles vehicles = new Vehicles();
+    private Booking theView;
 
-		public void actionPerformed(ActionEvent e) {
-			// ÷ppna en ny view
-			// Kolla vilken vehicle som ska hyras ut och s‰tt available = false
-			System.out.println("Rent Vehicle");
-			
-		}
-		
-	}
-	
-	class ReturnVehicleListener implements ActionListener {
+    public VehicleController(Booking theView) {
+        this.theView = theView;
+        this.theView.addRentVehicleListener(new RentVehicleListener());
+        this.theView.addReturnVehicleListener(new ReturnVehicleListener());
 
-		public void actionPerformed(ActionEvent e) {
-			// ÷ppna en ny view
-			// Kolla vilken vehicle som ska l‰mnas in och s‰tt available = true
-			System.out.println("Return Vehicle");
-		}
-		
-	}
-	
+    }
+
+    class RentVehicleListener implements ActionListener{
+
+        public void actionPerformed(ActionEvent e) {
+            // TODO √ñppna en ny view
+            // TODO Kolla vilken vehicle som ska hyras ut och s√§tt available = false
+            System.out.println("Rent Vehicle");
+            RentCarView rentCarView = new RentCarView();
+            rentCarView.setVisible(true);
+
+        }
+
+    }
+
+    class ReturnVehicleListener implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            //  TODO √ñppna en ny view
+            //  TODO Kolla vilken vehicle som ska l√§mnas in och s√§tt available = true
+            System.out.println("Return Vehicle");
+        }
+
+    }
+
 
 
 }
