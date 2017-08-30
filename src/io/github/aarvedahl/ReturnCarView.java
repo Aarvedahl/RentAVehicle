@@ -33,7 +33,6 @@ public class ReturnCarView extends JFrame {
 
     private Object[] addToVehicleList() {
         List <String> vehiclesNames = new ArrayList<>();
-
         for(Vehicle v: vehicles.getUnavailableVehicle()) {
             vehiclesNames.add(v.model + " ," + v.price + " kr");
         }

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Vehicles {
-
     static List<Vehicle>allVehicle = new ArrayList<Vehicle>();
     List<Vehicle>availableVehicle = new ArrayList<Vehicle>();
     List<Vehicle>unavailableVehicle = new ArrayList<Vehicle>();
@@ -22,9 +21,10 @@ public class Vehicles {
     }
 
     public Vehicles() {
-        System.out.println(allVehicle.size());
-
+       // System.out.println(allVehicle.size());
     }
+
+
 
     public void addToLists() {
         // TODO Varje gång man klickar på confirm så fylls listan på nytt
