@@ -17,14 +17,14 @@ public class Booking extends JFrame {
         JPanel vehiclePanel = new JPanel();
         showVehicles.setEditable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(600, 400);
+        this.setSize(650, 400);
         comboBox = new JComboBox(controller.addToVehicleList());
-       // unavailableComboBox = new JComboBox(controller.unavailableVehicles());
+        unavailableComboBox = new JComboBox(controller.unavailableVehicles());
 
         vehiclePanel.add(showVehicles);
         vehiclePanel.add(comboBox);
         vehiclePanel.add(rentButton);
-       // vehiclePanel.add(unavailableComboBox);
+        vehiclePanel.add(unavailableComboBox);
         vehiclePanel.add(returnButton);
       //  vehiclePanel.add(addButton);
       //  vehiclePanel.add(deleteButton);
@@ -38,6 +38,18 @@ public class Booking extends JFrame {
         showVehicles.append("Model:     SerialNumber:   Price:  Available \n");
         for(Vehicle v: controller.getAllVehicles()) {
             showVehicles.append(v.model + ",        " + v.serialNumber + ",             "  + v.price + "kr,        " + v.available +"\n");
+        }
+    }
+
+    public void refreshComboBox() {
+        comboBox.removeAllItems();
+        unavailableComboBox.removeAllItems();
+
+        for(Object o: controller.addToVehicleList()) {
+            comboBox.addItem(o);
+        }
+        for(Object o: controller.unavailableVehicles()) {
+            unavailableComboBox.addItem(o);
         }
     }
 

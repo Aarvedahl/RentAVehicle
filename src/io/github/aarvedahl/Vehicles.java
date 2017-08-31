@@ -21,20 +21,17 @@ public class Vehicles {
     }
 
     public Vehicles() {
-       // System.out.println(allVehicle.size());
     }
 
-
-
     public void addToLists() {
-        // TODO Varje gång man klickar på confirm så fylls listan på nytt
+        // TODO Varje gång man klickar på confirm så fylls listan på nytt, refresha både comobox och unavailableComboBox
         addVehicles();
         addToAvailableVehicles();
     }
 
     private void addVehicles() {
         Vehicle car1 = new Car(200, "Volvo XC90", 900, true, 004);
-        Vehicle car2 = new Car(250, "BMW 428", 1100, true, 003);
+        Vehicle car2 = new Car(250, "BMW 428", 1100, false, 003);
         Vehicle bike1 = new Bike("BRONCO", 80, true, 001);
         Vehicle bike2 = new Bike("Crescent", 100, true, 002);
         addVehicle(car1);
