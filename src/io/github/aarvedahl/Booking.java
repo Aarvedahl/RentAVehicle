@@ -1,5 +1,6 @@
 package io.github.aarvedahl;
 
+import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
@@ -21,13 +22,12 @@ public class Booking extends JFrame {
         comboBox = new JComboBox(controller.addToVehicleList());
         unavailableComboBox = new JComboBox(controller.unavailableVehicles());
 
+
         vehiclePanel.add(showVehicles);
         vehiclePanel.add(comboBox);
         vehiclePanel.add(rentButton);
         vehiclePanel.add(unavailableComboBox);
         vehiclePanel.add(returnButton);
-      //  vehiclePanel.add(addButton);
-      //  vehiclePanel.add(deleteButton);
         setVehicles();
 
         this.add(vehiclePanel);

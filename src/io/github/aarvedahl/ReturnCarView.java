@@ -18,7 +18,6 @@ public class ReturnCarView extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(370, 170);
 
-        vehicleList = new JComboBox(addToVehicleList());
         returnPanel.add(text);
         returnPanel.add(vehicleList);
         returnPanel.add(confirmBtn);
@@ -31,14 +30,14 @@ public class ReturnCarView extends JFrame {
         return vehicleList.getSelectedItem();
     }
 
-    private Object[] addToVehicleList() {
+    /*private Object[] addToVehicleList() {
         List <String> vehiclesNames = new ArrayList<>();
         for(Vehicle v: vehicles.getUnavailableVehicle()) {
             vehiclesNames.add(v.model + " ," + v.price + " kr");
         }
         return  vehiclesNames.toArray();
     }
-
+ */
     void addConfirmReturnListener(ActionListener listenForConfirmButton) {
         confirmBtn.addActionListener(listenForConfirmButton);
     }

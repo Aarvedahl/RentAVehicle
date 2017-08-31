@@ -37,9 +37,8 @@ public class RentCarView extends JFrame {
 
     private Object[] addToVehicleList() {
         List <String> newList = new ArrayList<>();
-        // Kolla om vår lista är tom och bara om den är tom så kan vi hämta och fylla på den
         vehicles.addToLists();
-        for(Vehicle v: vehicles.getAvailableVehicle()) {
+        for(Vehicle v: vehicles.getAllVehicles()) {
             newList.add(v.model + ", " + v.serialNumber + ", " + v.price + " kr");
         }
         return newList.toArray();

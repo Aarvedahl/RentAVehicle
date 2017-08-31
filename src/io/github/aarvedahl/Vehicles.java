@@ -5,28 +5,13 @@ import java.util.ArrayList;
 
 public class Vehicles {
     static List<Vehicle>allVehicle = new ArrayList<Vehicle>();
-    List<Vehicle>availableVehicle = new ArrayList<Vehicle>();
-    List<Vehicle>unavailableVehicle = new ArrayList<Vehicle>();
-
-    private void addToAvailableVehicles() {
-        availableVehicle.clear();
-        unavailableVehicle.clear();
-        for(Vehicle v: getAllVehicle()) {
-            if(v.available) {
-                availableVehicle.add(v);
-            } else {
-                unavailableVehicle.add(v);
-            }
-        }
-    }
+    // TODO Fixa så allVehicle inte är statiskt
 
     public Vehicles() {
     }
 
     public void addToLists() {
-        // TODO Varje gång man klickar på confirm så fylls listan på nytt, refresha både comobox och unavailableComboBox
         addVehicles();
-        addToAvailableVehicles();
     }
 
     private void addVehicles() {
@@ -41,7 +26,7 @@ public class Vehicles {
     }
 
     public void rentVehicle(String serialNumber) {
-        for(Vehicle vehicle: getAllVehicle()) {
+        for(Vehicle vehicle: getAllVehicles()) {
            if (vehicle.serialNumber == Integer.parseInt(serialNumber)) {
                 vehicle.available = false;
             }
@@ -49,7 +34,7 @@ public class Vehicles {
     }
 
     public void returnVehicle(String serialNumber) {
-        for(Vehicle vehicle: getAllVehicle()) {
+        for(Vehicle vehicle: getAllVehicles()) {
             if (vehicle.serialNumber == Integer.parseInt(serialNumber)) {
                 vehicle.available = true;
             }
@@ -60,24 +45,13 @@ public class Vehicles {
         allVehicle.add(vehicle);
     }
 
-    public void removeVehicle(Vehicle vehicle) {
-        allVehicle.remove(vehicle);
-    }
-
     public int numberOfAvaiableVehicles() {
-        return availableVehicle.size();
+        return allVehicle.size();
     }
 
-    public List<Vehicle> getAllVehicle() {
+    public List<Vehicle> getAllVehicles() {
         return allVehicle;
     }
 
-    public List<Vehicle> getAvailableVehicle() {
-        return availableVehicle;
-    }
-
-    public List<Vehicle> getUnavailableVehicle() {
-        return unavailableVehicle;
-    }
 }
 

@@ -21,15 +21,15 @@ public class VehicleController {
     }
 
     public List<Vehicle> getAllVehicles() {
-        return vehicles.getAllVehicle();
+        return vehicles.getAllVehicles();
     }
 
     public Object[] addToVehicleList() {
         List <String> newList = new ArrayList<>();
-        if(vehicles.getAllVehicle().size() == 0) {
+        if(vehicles.getAllVehicles().size() == 0) {
             vehicles.addToLists();
         }
-        for(Vehicle v: vehicles.getAvailableVehicle()) {
+        for(Vehicle v: vehicles.getAllVehicles()) {
             if(v.available) {
                 newList.add(v.serialNumber + "");
             }
@@ -39,11 +39,10 @@ public class VehicleController {
 
     public Object[] unavailableVehicles() {
         List <String> list = new ArrayList<>();
-        if(vehicles.getAllVehicle().size() == 0) {
+        if(vehicles.getAllVehicles().size() == 0) {
             vehicles.addToLists();
         }
-        for(Vehicle v: vehicles.getAllVehicle()) {
-            System.out.println(v.available);
+        for(Vehicle v: vehicles.getAllVehicles()) {
             if(!v.available) {
                 list.add(v.serialNumber + "");
             }
