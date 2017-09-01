@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 public class Vehicles {
     static List<Vehicle>allVehicle = new ArrayList<Vehicle>();
-    // TODO Fixa så allVehicle inte är statiskt
 
     public Vehicles() {
     }
@@ -41,12 +40,8 @@ public class Vehicles {
         }
     }
 
-    public void addVehicle(Vehicle vehicle) {
+    private void addVehicle(Vehicle vehicle) {
         allVehicle.add(vehicle);
-    }
-
-    public int numberOfAvaiableVehicles() {
-        return allVehicle.size();
     }
 
     public List<Vehicle> getAllVehicles() {

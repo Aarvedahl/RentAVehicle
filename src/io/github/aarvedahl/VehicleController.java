@@ -7,17 +7,18 @@ import java.util.List;
 
 
 public class VehicleController {
-    private Vehicles vehicles = new Vehicles();
+    Vehicles vehicles;
     private Booking theView;
-
     public VehicleController(Booking theView) {
         this.theView = theView;
         this.theView.addRentVehicleListener(new RentVehicleListener());
         this.theView.addReturnVehicleListener(new ReturnVehicleListener());
+        vehicles = new Vehicles();
     }
 
     public VehicleController() {
 
+        vehicles = new Vehicles();
     }
 
     public List<Vehicle> getAllVehicles() {
@@ -51,7 +52,6 @@ public class VehicleController {
     }
 
     class RentVehicleListener implements ActionListener{
-
         public void actionPerformed(ActionEvent e) {
             vehicles.rentVehicle(theView.comboBox.getSelectedItem().toString());
             theView.setVehicles();

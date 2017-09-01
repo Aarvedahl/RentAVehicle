@@ -1,6 +1,5 @@
 package io.github.aarvedahl;
 
-import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
@@ -8,8 +7,6 @@ public class Booking extends JFrame {
     private JButton rentButton = new JButton("Rent Vehice");
     private JButton returnButton = new JButton("Return Vehice");
     private JTextArea showVehicles = new JTextArea(25, 25);
-    private JButton addButton = new JButton("Add Vehice");
-    private JButton deleteButton = new JButton("Delete Vehice");
     private VehicleController controller = new VehicleController();
     public JComboBox comboBox;
     public JComboBox unavailableComboBox;
@@ -44,7 +41,6 @@ public class Booking extends JFrame {
     public void refreshComboBox() {
         comboBox.removeAllItems();
         unavailableComboBox.removeAllItems();
-
         for(Object o: controller.addToVehicleList()) {
             comboBox.addItem(o);
         }
